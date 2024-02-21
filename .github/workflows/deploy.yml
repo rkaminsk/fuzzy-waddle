@@ -31,7 +31,7 @@ jobs:
           name: package
           path: dist/
 
-      - name: publish package
-        if: ${{ false }}
-        uses: pypa/gh-action-pypi-publish@release/v1
-          repository-url: https://test.pypi.org/legacy/
+#      - name: publish package
+#        if: ${{ false }}
+#        uses: pypa/gh-action-pypi-publish@release/v1
+#          repository-url: https://test.pypi.org/legacy/
