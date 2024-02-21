@@ -3,8 +3,8 @@ name: deploy to pypi
 on:
   workflow_dispatch:
   push:
-#    tags:
-#      - v*.*.*
+    tags:
+      - v*.*.*
 
 jobs:
   deploy:
