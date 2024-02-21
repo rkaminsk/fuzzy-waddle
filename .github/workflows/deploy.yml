@@ -1,0 +1,37 @@
+name: deploy to pypi
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  deploy:
+    name: deploy
+    permissions:
+      id-token: write
+    environment: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: install build dependencies
+        run: python3 -m pip install build
+  
+      - name: build package
+        run: python3 -m build --sdist --wheel --outdir dist/
+
+      - name: upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: dist/
+
+      - name: publish package
+        if: ${{ false }}
+        uses: pypa/gh-action-pypi-publish@release/v1
+          repository-url: https://test.pypi.org/legacy/
