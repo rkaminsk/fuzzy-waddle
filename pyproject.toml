@@ -5,6 +5,36 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "fuzzy_waddle"
+authors = [
+    { name = "Roland Kaminski", email = "test@test.de" }
+]
+description = "A template project."
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+dynamic = [ "version" ]
+readme = "README.md"
+
+[project.urls]
+Hompage = "https://potassco.org/"
+
+[project.optional-dependencies]
+format = [ "black", "isort", "autoflake" ]
+lint_pylint = [ "pylint" ]
+typecheck = [ "types-setuptools", "mypy" ]
+test = [ "coverage[toml]" ]
+doc = [ "sphinx", "furo", "nbsphinx", "sphinx_copybutton", "myst-parser" ]
+dev = [ "fuzzy_waddle[test,typecheck,lint_pylint]" ]
+
+[project.scripts]
+fuzzy_waddle = "fuzzy_waddle.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+
 [tool.isort]
 profile = "black"
 line_length = 120
