@@ -1,4 +1,4 @@
-# fillname
+# fuzzy_waddle
 
 > Remove this block after following the instructions below to use the template.
 >
@@ -24,5 +24,5 @@ Further details, please refer to the [development instructions](DEVELOPMENT.md).
 Run the following for basic usage information:
 
 ```bash
-fillname -h
+fuzzy_waddle -h
 ```

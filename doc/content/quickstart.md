@@ -3,7 +3,7 @@
 A simple explanation on how to use the system.
 
 ```console
-$ fillname -h
+$ fuzzy_waddle -h
 ```
 
 ```{tip}

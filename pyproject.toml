@@ -39,8 +39,8 @@ variable-rgx = "^[a-z][a-z0-9]*((_[a-z0-9]+)*_?)?$"
 good-names = ["_"]
 
 [tool.coverage.run]
-source = ["fillname", "tests"]
-omit = ["*/fillname/__main__.py"]
+source = ["fuzzy_waddle", "tests"]
+omit = ["*/fuzzy_waddle/__main__.py"]
 
 [tool.coverage.report]
 exclude_lines = ["assert", "nocoverage"]

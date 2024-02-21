@@ -1,4 +1,4 @@
-# fillname
+# fuzzy_waddle
 
 An example project template.
 
