@@ -1,0 +1,45 @@
+name: Run CI tests
+
+on:
+  # Creates a reusable workflow
+  workflow_call:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Runs the workflow when adding to the main branch
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+env:
+  FORCE_COLOR: "3"
+
+jobs:
+  build:
+    name: test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
+
+    steps:
+    - name: "checkout repository"
+      uses: actions/checkout@v3
+
+    - name: "setup python 3.9"
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    - name: "setup python 3.11"
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+  
+    - name: install nox
+      run: python -m pip install nox
+
+    - name: run tests
+      run: nox
